@@ -1,0 +1,23 @@
+<html xmlns:th="http://thymeleaf.org">
+
+	<head>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+	</head>	
+	<body> 
+		<form style="margin: 5em 5em 0em 5em;">
+			<div class="mb-3">
+				<label for="TaskName" class="form-label">Task Name</label>
+				<input type="text" class="form-control" id="NewTaskName">
+			</div>
+			<div  class="mb-3">
+				<label  for="TaskDetails" class="form-label">Task Details</label>
+				<input type="text" class="form-control" id="NewTaskDetails">
+			</div>
+			
+			<button type="submit" class="btn btn-primary">Save</button>
+			<a href="/todo">
+			<button type="button" class="btn btn-primary" style="margin: 0em 1em;">Done</button>
+			</a>
+		</form>
+	</body>
+</html>
