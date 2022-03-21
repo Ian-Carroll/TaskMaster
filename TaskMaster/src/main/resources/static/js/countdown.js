@@ -1,5 +1,5 @@
 // Need to make a function which handles the time
-alert(sessionStorage.getItem('isPomodoro'))
+//alert(sessionStorage.getItem('isPomodoro'))
 // If the start button is clicked, hide the startGroup and show the pauseGroup
 document.getElementById('start').addEventListener('click', function()
 {
