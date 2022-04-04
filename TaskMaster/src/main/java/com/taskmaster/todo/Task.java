@@ -6,11 +6,20 @@ import java.util.ArrayList;
 import org.springframework.web.client.RestTemplate;
 public class Task {
 	private String name;
-	private ArrayList<String> comments;
+	//private ArrayList<String> comments;
+	private String comment;
 	private Priority priority;
 	private LocalDate due_date;
 	
 	
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -19,14 +28,14 @@ public class Task {
 		this.name = name;
 	}
 
-	public ArrayList<String> getComments() {
+	/*public ArrayList<String> getComments() {
 		return comments;
 	}
 
 	public void setComments(ArrayList<String> comments) {
 		this.comments = comments;
 	}
-
+	*/
 	public Priority getPriority() {
 		return priority;
 	}

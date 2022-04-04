@@ -11,15 +11,31 @@
 		</title>
 	</head>
 	<body>
-		<div class="container">
-			<h1 style="margin-top: 1em;">To-do List</h1>
-			<h2 style="margin-top: 1em;">Please enter a task:</h2>
-			<a href="todo/newtask">
-				<button type="button" class="btn btn-Primary" id ="New Task"style="margin-top: 1em;">New Task</button>
-			</a>	
-			<div class="col-md" style="margin: 2em 25em">
-        		<h3> To-Do:</h3>
-    		</div>
-  		</div>
+		<!-- trying to use TodoDto to post data between newtask and todo -->
+		<form action=" " th:action="@{/todo}" th:object="${todoDto}" method="post" id="ToDo">
+		<div   class="container">
+			<h1 style="margin-top: 0.5em;">To-do List</h1>
+			<h2 style="margin-top: 0.25em;">Please enter a task:</h2>
+			<a href="/todo/newtask">
+				<button type="button" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">New Task</button>
+			</a>
+			<div>
+				<button  type="button" class="btn btn-danger" id ="Delete Task" style="margin-top: 0.5em,"> Delete Task </button>
+				<button  type="button" class="btn btn-success" id ="Add Due Date" style="margin: 1em"> Add Due Date </button>
+				<button  type="button" class="btn btn-info" id ="Add Comment" style="margin: 1em"> Add Comment </button>
+				<button  type="button" class="btn btn-warning" id ="Add Priority" style="margin: 1em"> Add Priority </button>
+			</div>
+			<h3  class="row justify-content-center"> To-Do:</h3>
+			
+			<div class="row justify-content-center" th:text="${todoDto.tasks}"></div> 
+			
+			<!-- <div th:each="tasks : ${#numbers.sequence(0,tasks.size(),1)}"> 
+				<p class="row justify-content-center">
+					th:text="${todoDto.tasks[tasks]}" 
+			
+				</p> -->
+		</div>
+		</form>
+			
 	</body>
 </html>
