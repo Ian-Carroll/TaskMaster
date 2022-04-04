@@ -1,6 +1,6 @@
 package com.taskmaster.countdown;
 
-// CountdownDto (Data Transfer Object) modelling all of the data present
+// CountdownDto (Data Transfer Object) modeling all of the data present
 // between the countdown.html and config_countdown.html pages
 public class CountdownDto {
 	
@@ -8,11 +8,17 @@ public class CountdownDto {
 	private int sessionTimeMins;
 	private int sessionTimeSecs;
 	private int numBreaks;
-	private int breakLength; // Note that breakLength is in Minutes
+	private int breakLength; // In minutes
 	private Boolean isPomodoro;
 	private Boolean isShortPeriod;
 	private Boolean isLongPeriod;
-	private String state; // Note this is always either "Work" or "Break"
+	private String state; // Always "Work" or "Break"
+	
+	/*  
+	 * Getters and setters for all 
+	 * attributes in the CountdownDto
+	 * class.
+	 */
 	
 	public int getSessionTimeHrs() {
 		return sessionTimeHrs;

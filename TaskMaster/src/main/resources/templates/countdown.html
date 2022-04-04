@@ -9,43 +9,58 @@
 		<title>TaskMaster/Countdown</title>
 	</head>
 	<body>
-		<h2 class="text-center" style="margin: 1em 0em">Welcome To the Countdown Page!</h2>
+	<form action="" th:action="@{/}" th:object="${countdownDto}" method="post" id="configureCountdownForm" style="margin: 1em 10em 2em 10em;">
+		<input style="display: none;" type="number" class="form-control form-control-lg" id="sessionTimeHrs" th:field="${countdownDto.sessionTimeHrs}" min="0">
+		<input style="display: none;" type="number" class="form-control form-control-lg" id="sessionTimeMins" th:field="${countdownDto.sessionTimeMins}" min="0">
+		<input style="display: none;" type="number" class="form-control form-control-lg" id="sessionTimeSecs" th:field="${countdownDto.sessionTimeSecs}" min="0">
+		<input style="display: none;" type="number" class="form-control form-control-lg" id="numBreaks" th:field="${countdownDto.numBreaks}" min="0">
+		<input style="display: none;" type="number" class="form-control form-control-lg" id="breakLength" th:field="${countdownDto.breakLength}" min="0">
+		<input style="display: none;" type="checkbox" id="isPomodoro" th:field="${countdownDto.isPomodoro}" min="0">
+		<input style="display: none;" type="checkbox" id="isShortPeriod" th:field="${countdownDto.isShortPeriod}" min="0">
+		<input style="display: none;" type="checkbox" id="isLongPeriod" th:field="${countdownDto.isLongPeriod}" min="0">
+		<input style="display: none;" type="text" id="state" th:field="${countdownDto.state}" value="Work">
 		<div style="margin: 12em;">
 		</div>
 		
 		<!-- Countdown Timer Code -->
 		<div class="container">
-			<h4 class="row justify-content-center" style="margin: 1em 0em;"> XXH YYM ZZS Remaining </h4>
+			<h4 id="timeText" class="row justify-content-center" style="margin: 1em 0em;" th:text="${countdownDto.sessionTimeHrs} + 'H ' +  ${countdownDto.sessionTimeMins} + 'M ' + ${countdownDto.sessionTimeSecs} + 'S'"> XXH YYM ZZS Remaining </h4>
 			<div class="progress" style="height: 2rem;">
-			  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 47%; height: 2rem;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">47%</div>
+			  <div id="progressbar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%; height: 2rem;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">100%</div>
 			</div>
-			<h5 class="row justify-content-center" style="margin: 2em 0em 4em 0em;" th:text="${countdownDto.state}"></h5>
+			<div id="work">
+				<h5 class="row justify-content-center" style="margin: 2em 0em 4em 0em;">Work</h5>
+			</div>
+			<div id="break" style="display: none;">
+				<h5 id="break" class="row justify-content-center" style="margin: 2em 0em 4em 0em;">Break</h5>
+			</div>
 		</div>
 		
-		<div style="margin: 20em;"> </div>
+		<div style="margin: 8em;"> </div>
 		
 		<!-- Button code below the countdown -->
-		<div class="container">
+		<div class="container" style="width: 50%;">
 			<div class="row justify-content-center">
-				<div id="startGroup" class="btn-group" role="group" style="display: contents;">
-				  <button type="button" class="btn btn-secondary" style="margin: 0em 1em 0em 20em" id="cancelS">Cancel</button>
-				  <button type="button" class="btn btn-success" style="margin: 0em 20em 0em 1em" id="start">Start</button>
+				<div id="startGroup" class="btn-group" role="group" style="display: content;">
+				  <button type="button" class="btn btn-lg btn-secondary" style="margin: 0 auto;" id="cancelS">Cancel</button>
+				  <button type="button" class="btn btn-lg btn-success" style="margin: 0 auto;" id="start">Start</button>
 				</div>
 				<div id="pauseGroup" class="btn-group" role="group" style="display: none;">
-				  <button type="button" class="btn btn-danger" style="margin: 0em 1em 0em 20em" id="cancelP">Cancel</button>
-				  <button type="button" class="btn btn-warning" style="margin: 0em 20em 0em 1em" id="pause">Pause</button>
+				  <button type="button" class="btn btn-lg btn-danger" style="margin: 0 auto;" id="cancelP">Cancel</button>
+				  <button type="button" class="btn btn-lg btn-warning" style="margin: 0 auto;" id="pause">Pause</button>
 				</div>
 				<div id="resumeGroup" class="btn-group" role="group" style="display: none;">
-				  <button type="button" class="btn btn-danger" style="margin: 0em 1em 0em 20em" id="cancelR">Cancel</button>
-				  <button type="button" class="btn btn-success" style="margin: 0em 20em 0em 1em" id="resume">Resume</button>
+				  <button type="button" class="btn btn-lg btn-danger" style="margin: 0 auto;" id="cancelR">Cancel</button>
+				  <button type="button" class="btn btn-lg btn-success" style="margin: 0 auto;" id="resume">Resume</button>
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				  <a href="config_countdown">
-				  	<button type="button" class="btn btn-lg btn-primary" style="margin: 1em 0em 0em 29.5em">Configure</button>
+				  	<button type="submit" class="btn btn-lg btn-primary" style="margin:2em auto; display:block;">Configure</button>
 				  </a>
 			</div>
 		</div>
 		<script type="text/javascript" src="/js/countdown.js"></script>
+	</form>
 	<body>
 </html>
