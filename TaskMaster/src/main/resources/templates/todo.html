@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-light bg-light" style="margin: 1em" >
 		 <a class="navbar-brand" href="/" style="margin: auto">Home</a>
 		 <a class="navbar-brand" href="/" style="margin: auto">Countdown</a>
-		 <a class="navbar-brand" href="/todo" style="margin: auto">To-Do List</a>
+		 <a class="navbar-brand" href="/" style="margin: auto">To-Do List</a>
 	</nav>
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
@@ -12,30 +12,38 @@
 	</head>
 	<body>
 		<!-- trying to use TodoDto to post data between newtask and todo -->
-		<form action=" " th:action="@{/todo}" th:object="${todoDto}" method="post" id="ToDo">
-		<div   class="container">
-			<h1 style="margin-top: 0.5em;">To-do List</h1>
-			<h2 style="margin-top: 0.25em;">Please enter a task:</h2>
-			<a href="/todo/newtask">
-				<button type="button" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">New Task</button>
-			</a>
-			<div>
-				<button  type="button" class="btn btn-danger" id ="Delete Task" style="margin-top: 0.5em,"> Delete Task </button>
-				<button  type="button" class="btn btn-success" id ="Add Due Date" style="margin: 1em"> Add Due Date </button>
-				<button  type="button" class="btn btn-info" id ="Add Comment" style="margin: 1em"> Add Comment </button>
-				<button  type="button" class="btn btn-warning" id ="Add Priority" style="margin: 1em"> Add Priority </button>
-			</div>
-			<h3  class="row justify-content-center"> To-Do:</h3>
-			<!-- <div class="row justify-content-center" th:text="${todoDto.tasks[0].name}"></div> 
-			<div class="row justify-content-center" th:text="${todoDto.tasks[0].comment}"></div> -->
+		<form action="" th:action="@{/}" th:object="${todoDto}" method="post" id="ToDo">
+			<ul>
+				<li th:each="task : ${taskArray}">
+					<div class="ui checkbox">
+						<input type="checkbox" th:field="*{tasks}" th:value="${task}">
+					</div>
+				</li>
+			</ul>
 			
-			<div  th:each="t : ${#numbers.sequence(0,todoDto.getTasks().size - 1,1)}"> 
-				<div class="row justify-content-center" th:text="${todoDto.tasks[t].name}"></div> 
-				<div class="row justify-content-center" th:text="${todoDto.tasks[t].comment}"></div> 
-				<div class="row justify-content-center" th:text="${todoDto.tasks[t].priority}"></div>
-				<div class="row justify-content-center" th:text="${todoDto.tasks[t].due_date}"></div>
-			</div>	
-		</div>
+			<div class="container">
+				<h1 style="margin-top: 0.5em;">To-do List</h1>
+				<h2 style="margin-top: 0.25em;">Please enter a task:</h2>
+				<a href="/todo/newtask">
+					<button type="submit" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">New Task</button>
+				</a>
+				<div>
+					<button  type="button" class="btn btn-danger" id ="Delete Task" style="margin-top: 0.5em,"> Delete Task </button>
+					<button  type="button" class="btn btn-success" id ="Add Due Date" style="margin: 1em"> Add Due Date </button>
+					<button  type="button" class="btn btn-info" id ="Add Comment" style="margin: 1em"> Add Comment </button>
+					<button  type="button" class="btn btn-warning" id ="Add Priority" style="margin: 1em"> Add Priority </button>
+				</div>
+				<h3  class="row justify-content-center"> To-Do:</h3>
+				<!-- <div class="row justify-content-center" th:text="${todoDto.tasks[0].name}"></div> 
+				<div class="row justify-content-center" th:text="${todoDto.tasks[0].comment}"></div> -->
+				
+				<div  th:each="t : ${#numbers.sequence(0,todoDto.getTasks().size - 1,1)}"> 
+					<div class="row justify-content-center" th:text="${todoDto.tasks[t].name}"></div> 
+					<div class="row justify-content-center" th:text="${todoDto.tasks[t].comment}"></div> 
+					<div class="row justify-content-center" th:text="${todoDto.tasks[t].priority}"></div>
+					<div class="row justify-content-center" th:text="${todoDto.tasks[t].due_date}"></div>
+				</div>	
+			</div>
 		</form>
 	<script  type="text/javascript" src="/js/todo.js"></script>
 	</body>
