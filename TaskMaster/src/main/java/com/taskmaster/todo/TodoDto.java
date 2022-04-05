@@ -17,4 +17,8 @@ public ArrayList<Task> getTasks() {
 public void addTask(Task task) {
 	tasks.add(task);
 }
+public void defaultTask()
+{
+	tasks.add(new Task());
+}
 }

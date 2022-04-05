@@ -19,6 +19,7 @@
 			<a href="/todo/newtask">
 				<button type="button" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">New Task</button>
 			</a>
+			
 			<div>
 				<button  type="button" class="btn btn-danger" id ="Delete Task" style="margin-top: 0.5em,"> Delete Task </button>
 				<button  type="button" class="btn btn-success" id ="Add Due Date" style="margin: 1em"> Add Due Date </button>
@@ -27,15 +28,15 @@
 			</div>
 			<h3  class="row justify-content-center"> To-Do:</h3>
 			
-			<div class="row justify-content-center" th:text="${todoDto.tasks}"></div> 
+			<!-- <div class="row justify-content-center" th:text="${todoDto.tasks[0].name}"></div> 
+			<div class="row justify-content-center" th:text="${todoDto.tasks[0].comment}"></div> -->
 			
-			<!-- <div th:each="tasks : ${#numbers.sequence(0,tasks.size(),1)}"> 
-				<p class="row justify-content-center">
-					th:text="${todoDto.tasks[tasks]}" 
-			
-				</p> -->
+			<div  th:each="t : ${#numbers.sequence(0,tasks.size() - 1,1)}"> 
+				<div class="row justify-content-center" th:text="${todoDto.tasks[t].name}"></div> 
+				<div class="row justify-content-center" th:text="${todoDto.tasks[t].comment}"></div> 
+			</div>	
 		</div>
 		</form>
-			
+	<script  type="text/javascript" src="/js/todo.js"></script>
 	</body>
 </html>
