@@ -19,7 +19,6 @@
 			<a href="/todo/newtask">
 				<button type="button" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">New Task</button>
 			</a>
-			
 			<div>
 				<button  type="button" class="btn btn-danger" id ="Delete Task" style="margin-top: 0.5em,"> Delete Task </button>
 				<button  type="button" class="btn btn-success" id ="Add Due Date" style="margin: 1em"> Add Due Date </button>
@@ -27,13 +26,14 @@
 				<button  type="button" class="btn btn-warning" id ="Add Priority" style="margin: 1em"> Add Priority </button>
 			</div>
 			<h3  class="row justify-content-center"> To-Do:</h3>
-			
 			<!-- <div class="row justify-content-center" th:text="${todoDto.tasks[0].name}"></div> 
 			<div class="row justify-content-center" th:text="${todoDto.tasks[0].comment}"></div> -->
 			
-			<div  th:each="t : ${#numbers.sequence(0,tasks.size() - 1,1)}"> 
+			<div  th:each="t : ${#numbers.sequence(0,todoDto.getTasks().size - 1,1)}"> 
 				<div class="row justify-content-center" th:text="${todoDto.tasks[t].name}"></div> 
 				<div class="row justify-content-center" th:text="${todoDto.tasks[t].comment}"></div> 
+				<div class="row justify-content-center" th:text="${todoDto.tasks[t].priority}"></div>
+				<div class="row justify-content-center" th:text="${todoDto.tasks[t].due_date}"></div>
 			</div>	
 		</div>
 		</form>

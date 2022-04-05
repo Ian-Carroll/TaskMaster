@@ -4,7 +4,6 @@
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
 		<title>New Task</title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		
 	</head>	
 	<body> 
 		<form action=" " th:action="@{/todo/newtask}" th:object="${task}" method="post" id="NewForm" name="NewForm" style="margin: 5em 5em 0em 5em;">
@@ -16,11 +15,22 @@
 				<label  for="TaskDetails" class="form-label">Task Details</label>
 				<input type="text" class="form-control" id="NewTaskDetails" th:field="${task.comment}"name="NewTaskDetails">
 			</div>
+			<div class="mb-3">
+				<label for="TaskPriority" class="form-label ">Task Priority</label>
+				<input type="text" class="form-control" id="TaskPriority" th:field="${task.name}" name="NewTaskPriority">
+				<small  id="PriorityHelp" class="form-text text-muted">
+				Enter either top, middle, or bottom for priority of Task.
+				</small>
+			</div>
+			<div class="mb-3">
+				<label for="TaskDueDate" class="form-label ">Task Due Date</label>
+				<input type="text" class="form-control" id="TaskDueDate" th:field="${task.due_date}" name="NewTaskDueDate">
+			</div>
 			<button type="submit" class="btn btn-primary" id="Save">Save</button>
 			<a href="/todo">
 				<button type="button" class="btn btn-primary" id="Done" style="margin: 0em 1em;">Done</button>
 			</a>
 		</form>
-	<script  tpe="text/javascript" src="/js/newtask.js"></script>
+	<script  type="text/javascript" src="/js/newtask.js"></script>
 	</body>
 </html>

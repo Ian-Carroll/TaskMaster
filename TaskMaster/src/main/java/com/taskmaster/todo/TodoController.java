@@ -5,7 +5,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
@@ -20,7 +19,6 @@ public class TodoController {
 		// If you comment these lines out the todo list is blank when you enter the page
 		//todoDto.addTask(task);
 		todoDto.defaultTask();
-		model.put("task",task);
 		model.put("todoDto", todoDto);
 		return "todo";
 	}
