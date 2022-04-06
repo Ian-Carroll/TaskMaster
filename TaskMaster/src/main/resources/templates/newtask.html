@@ -5,30 +5,152 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>	
 	<body> 
-		<form action=" " th:action="@{/todo/newtask}" th:object="${task}" method="post" id="NewForm" name="NewForm" style="margin: 5em 5em 0em 5em;">
+		<h2 class="row justify-content-center"> Edit Tasks</h2>
+		<form action=" " th:action="@{/todo/newtask}" th:object="${todoDto}" method="post" id="NewForm" name="NewForm" style="margin: 5em 5em 0em 5em;">
+			<!-- Task 0 -->
+			<h3> Task 0 </h3>
+			
 			<div class="mb-3">
-				<label for="TaskName" class="form-label ">Task Name</label>
-				<input type="text" class="form-control" id="TaskName" th:field="${task.name}" name="NewTaskName">
+				<label for="Task0Name" class="form-label " style="margin-top: 1em">Task Name</label>
+				<input type="text" class="form-control" id="Task0Name" th:field="${todoDto.task0.name}" name="Task0Name">
 			</div>
 			<div  class="mb-3">
-				<label  for="TaskDetails" class="form-label">Task Details</label>
-				<input type="text" class="form-control" id="NewTaskDetails" th:field="${task.comment}"name="NewTaskDetails">
+				<label  for="Task0Comment" class="form-label">Task Comment</label>
+				<input type="text" class="form-control" id="Task0Comment" th:field="${todoDto.task0.comment}"name="Task0Comment">
 			</div>
 			<div class="mb-3">
-				<label for="TaskPriority" class="form-label ">Task Priority</label>
-				<input type="text" class="form-control" id="TaskPriority" th:field="${task.name}" name="NewTaskPriority">
+				<label for="Task0Priority" class="form-label ">Task Priority</label>
+				<select class="form-control" id="Task0Priority" th:field="${todoDto.task0.priority}" name="Task0Priority">
+					<option  value="NA">N/A</option>
+					<option  value="top">top</option>
+					<option  value="middle">middle</option>
+					<option  value="bottom">bottom</option>
+				</select>
 				<small  id="PriorityHelp" class="form-text text-muted">
 				Enter either top, middle, or bottom for priority of Task.
 				</small>
 			</div>
 			<div class="mb-3">
-				<label for="TaskDueDate" class="form-label ">Task Due Date</label>
-				<input type="text" class="form-control" id="TaskDueDate" th:field="${task.due_date}" name="NewTaskDueDate">
+				<label for="Task0DueDate" class="form-label ">Task Due Date</label>
+				<input type="date" class="form-control" id="Task0DueDate" th:field="${todoDto.task0.due_date}" name="Task0DueDate">
 			</div>
-			<button type="submit" class="btn btn-primary" id="Save">Save</button>
-			<a href="/todo">
-				<button type="button" class="btn btn-primary" id="Done" style="margin: 0em 1em;">Done</button>
-			</a>
+			
+			
+			<!-- Task 1 -->
+			<h3> Task 1 </h3>
+			
+			<div class="mb-3">
+				<label for="Task1Name" class="form-label " style="margin-top: 1em">Task Name</label>
+				<input type="text" class="form-control" id="Task1Name" th:field="${todoDto.task1.name}" name="Task1Name">
+			</div>
+			<div  class="mb-3">
+				<label  for="Task1Comment" class="form-label">Task Comment</label>
+				<input type="text" class="form-control" id="Task1Comment" th:field="${todoDto.task1.comment}"name="Task1Comment">
+			</div>
+			<div class="mb-3">
+				<label for="Task1Priority" class="form-label ">Task Priority</label>
+				<select class="form-control" id="Task1Priority" th:field="${todoDto.task1.priority}" name="Task1Priority">
+					<option  value="NA">N/A</option>
+					<option  value="top">top</option>
+					<option  value="middle">middle</option>
+					<option  value="bottom">bottom</option>
+				</select>
+				<small  id="PriorityHelp" class="form-text text-muted">
+				Enter either top, middle, or bottom for priority of Task.
+				</small>
+			</div>
+			<div class="mb-3">
+				<label for="Task1DueDate" class="form-label ">Task Due Date</label>
+				<input type="date" class="form-control" id="Task1DueDate" th:field="${todoDto.task1.due_date}" name="Task1DueDate">
+			</div>
+			
+			
+			<!-- Task 2 -->
+			<h3> Task 2 </h3>
+			
+			<div class="mb-3">
+				<label for="Task2Name" class="form-label " style="margin-top: 1em">Task Name</label>
+				<input type="text" class="form-control" id="Task2Name" th:field="${todoDto.task2.name}" name="Task2Name">
+			</div>
+			<div  class="mb-3">
+				<label  for="Task2Comment" class="form-label">Task Comment</label>
+				<input type="text" class="form-control" id="Task2Comment" th:field="${todoDto.task2.comment}"name="Task2Comment">
+			</div>
+			<div class="mb-3">
+				<label for="Task2Priority" class="form-label ">Task Priority</label>
+				<select class="form-control" id="Task2Priority" th:field="${todoDto.task2.priority}" name="Task2Priority">
+					<option  value="NA">N/A</option>
+					<option  value="top">top</option>
+					<option  value="middle">middle</option>
+					<option  value="bottom">bottom</option>
+				</select>
+				<small  id="PriorityHelp" class="form-text text-muted">
+				Enter either top, middle, or bottom for priority of Task.
+				</small>
+			</div>
+			<div class="mb-3">
+				<label for="Task2DueDate" class="form-label ">Task Due Date</label>
+				<input type="date" class="form-control" id="Task2DueDate" th:field="${todoDto.task2.due_date}" name="Task2DueDate">
+			</div>
+			
+			
+			<!-- Task 3 -->
+			<h3> Task 3 </h3>
+			
+			<div class="mb-3">
+				<label for="Task3Name" class="form-label " style="margin-top: 1em">Task Name</label>
+				<input type="text" class="form-control" id="Task3Name" th:field="${todoDto.task3.name}" name="Task3Name">
+			</div>
+			<div  class="mb-3">
+				<label  for="Task3Comment" class="form-label">Task Comment</label>
+				<input type="text" class="form-control" id="Task3Comment" th:field="${todoDto.task3.comment}"name="Task3Comment">
+			</div>
+			<div class="mb-3">
+				<label for="Task3Priority" class="form-label ">Task Priority</label>
+				<select class="form-control" id="Task3Priority" th:field="${todoDto.task3.priority}" name="Task3Priority">
+					<option  value="NA">N/A</option>
+					<option  value="top">top</option>
+					<option  value="middle">middle</option>
+					<option  value="bottom">bottom</option>
+				</select>				<small  id="PriorityHelp" class="form-text text-muted">
+				Enter either top, middle, or bottom for priority of Task.
+				</small>
+			</div>
+			<div class="mb-3">
+				<label for="Task3DueDate" class="form-label ">Task Due Date</label>
+				<input type="date" class="form-control" id="Task3DueDate" th:field="${todoDto.task3.due_date}" name="Task3DueDate">
+			</div>
+			
+			
+			<!-- Task 4 -->
+			<h3> Task 4 </h3>
+			
+			<div class="mb-3">
+				<label for="Task4Name" class="form-label " style="margin-top: 1em">Task Name</label>
+				<input type="text" class="form-control" id="Task4Name" th:field="${todoDto.task4.name}" name="Task4Name">
+			</div>
+			<div  class="mb-3">
+				<label  for="Task4Comment" class="form-label">Task Comment</label>
+				<input type="text" class="form-control" id="Task4Comment" th:field="${todoDto.task4.comment}"name="Task4Comment">
+			</div>
+			<div class="mb-3">
+				<label for="Task4Priority" class="form-label ">Task Priority</label>
+				<select class="form-control" id="Task4Priority" th:field="${todoDto.task4.priority}" name="Task4Priority">
+					<option  value="NA">N/A</option>
+					<option  value="top">top</option>
+					<option  value="middle">middle</option>
+					<option  value="bottom">bottom</option>
+				</select>
+				<small  id="PriorityHelp" class="form-text text-muted">
+				Enter either top, middle, or bottom for priority of Task.
+				</small>
+			</div>
+			<div class="mb-3">
+				<label for="Task4DueDate" class="form-label ">Task Due Date</label>
+				<input type="date" class="form-control" id="Task4DueDate" th:field="${todoDto.task4.due_date}" name="Task4DueDate">
+			</div>
+				
+		<button type="submit" class="btn btn-primary" id="Save" style="margin-top: 6em">Save</button>
 		</form>
 	<script  type="text/javascript" src="/js/newtask.js"></script>
 	</body>
