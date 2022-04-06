@@ -5,7 +5,7 @@
 		<title>TaskMaster/Countdown/Configure</title>
 	</head>
 	<body>
-		<form action="" th:action="@{/config_countdown}" th:object="${countdownDto}" method="post" id="configureCountdownForm" style="margin: 1em 10em 2em 10em;">
+		<form action="" th:action="@{/}" th:object="${countdownDto}" method="post" id="configureCountdownForm" style="margin: 1em 10em 2em 10em;">
 			<div class="form-group">
 			  <div class="mb-3">
 			    <label for="sessionTimeHrs" class="form-label form-control-lg">Total Session Time (Hours)</label>
@@ -40,9 +40,6 @@
 			  <div style="margin: 0.5em 0em;" class="btn-group">
 				  <a href="/">
 				  	<button type="submit" class="btn btn-lg btn-primary" id="submit" style="margin: 0em 1em 0em 0em;">Submit</button>
-				  </a>
-				  <a href="/">
-				  	<button type="submit" class="btn btn-lg btn-secondary" style="margin: 0em 1em 0em 0em;">Cancel</button>
 				  </a>
 			  </div>
 		    </div>

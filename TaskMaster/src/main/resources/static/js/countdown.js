@@ -9,10 +9,20 @@ let sessionSecs = document.getElementById('sessionTimeSecs');
 let numBreaks = document.getElementById('numBreaks').value;
 let breakLength = document.getElementById('breakLength').value;
 
-// Preset checkboxes
+// Config preset checkboxes
 let isPomodoro = document.getElementById('isPomodoro').checked;
 let isShortPeriod = document.getElementById('isShortPeriod').checked;
 let isLongPeriod = document.getElementById('isLongPeriod').checked;
+
+// Storage variables
+let sessionHoursStorage = localStorage.getItem('sessionHours');
+let sessionMinsStorage = localStorage.getItem('sessionMins');
+let sessionSecsStorage = localStorage.getItem('sessionSecs');
+let numBreaksStorage = localStorage.getItem('numBreaks');
+let breakLengthStorage = localStorage.getItem('breakLength');
+let isPomodoroStorage = (localStorage.getItem('isPomodoro') === 'true');
+let isShortPeriodStorage = (localStorage.getItem('isShortPeriod') === 'true');
+let isLongPeriodStorage = (localStorage.getItem('isLongPeriod') === 'true');
 
 // Parse timing data in terms of seconds
 var totalTime = parseInt(sessionSecs.value);
@@ -27,56 +37,129 @@ var intervalCount = 0;
 // Page configures the countdown list on each refresh/load/GET request
 var countdownList = [];
 
-// If no presets are selected
-if (!isPomodoro && !isShortPeriod && !isLongPeriod)
+let referrer = document.referrer;
+console.log(referrer);
+
+if (referrer == "" || referrer == "http://localhost:8080/config_countdown")
 {
-	if (numBreaks == 0 || breakLength == 0)
+	// If no presets are selected
+	if (!isPomodoro && !isShortPeriod && !isLongPeriod)
 	{
-		countdownList = [[totalTime, true]];	// Single interval countdown
-	}
-	
-	else
-	{
-		// Work period is the total time minus break time, divided by
-		// the number of breaks + 1
-		var workPeriod = totalTime-(60*numBreaks*breakLength);
-		workPeriod = workPeriod/(parseInt(numBreaks)+1);
-		
-		// Iterate through total sequence of countdowns
-		for (let i = 0; i < (2*numBreaks+1); i++)
+		if (numBreaks == 0 || breakLength == 0)
 		{
-			// insert work period on even index
-			if (i % 2 == 0)
-			{
-				countdownList.push([workPeriod, true]);	// true is parsed later to read "Work"
-			}
+			countdownList = [[totalTime, true]];	// Single interval countdown
+		}
+		
+		else
+		{
+			// Work period is the total time minus break time, divided by
+			// the number of breaks + 1
+			var workPeriod = totalTime-(60*numBreaks*breakLength);
+			workPeriod = workPeriod/(parseInt(numBreaks)+1);
 			
-			else if (i % 2 == 1)
+			// Iterate through total sequence of countdowns
+			for (let i = 0; i < (2*numBreaks+1); i++)
 			{
-				countdownList.push([breakLength*60, false]); // false is parsed later to read "Break" 
+				// insert work period on even index
+				if (i % 2 == 0)
+				{
+					countdownList.push([workPeriod, true]);	// true is parsed later to read "Work"
+				}
+				
+				else if (i % 2 == 1)
+				{
+					countdownList.push([breakLength*60, false]); // false is parsed later to read "Break" 
+				}
 			}
 		}
 	}
+	
+	// Handle all presets
+	else if (isPomodoro)
+	{
+		countdownList.push([(25*60), true]);
+		countdownList.push([(5*60), false]);
+	}
+	else if (isShortPeriod)
+	{
+		countdownList.push([(3600*1), true]);
+		countdownList.push([(10*60), false]);
+	}
+	else
+	{
+		var longPeriodTime = (3*3600) + (30*60);
+		var workPeriod = longPeriodTime-(60*3*10);
+		workPeriod = workPeriod/(parseInt(3)+1);
+		countdownList.push([workPeriod, true]);
+		countdownList.push([10*60, false]);
+	}
 }
 
-// Handle all presets
-else if (isPomodoro)
-{
-	countdownList.push([(25*60), true]);
-	countdownList.push([(5*60), false]);
-}
-else if (isShortPeriod)
-{
-	countdownList.push([(3600*1), true]);
-	countdownList.push([(10*60), false]);
-}
 else
-{
-	var longPeriodTime = (3*3600) + (30*60);
-	var workPeriod = longPeriodTime-(60*3*10);
-	workPeriod = workPeriod/(parseInt(3)+1);
-	countdownList.push([workPeriod, true]);
-	countdownList.push([10*60, false]);
+{	
+	var totalTimeStorage = parseInt(sessionSecsStorage);
+	var totalTimeStorage = totalTimeStorage + 60*parseInt(sessionMinsStorage);
+	var totalTimeStorage = totalTimeStorage + 60*60*parseInt(sessionHoursStorage);
+	// If no presets are selected
+	if (!isPomodoroStorage && !isShortPeriodStorage && !isLongPeriodStorage)
+	{
+		if (numBreaksStorage == 0 || breakLengthStorage == 0)
+		{
+			countdownList = [[totalTimeStorage, true]];	// Single interval countdown
+		}
+		
+		else
+		{
+			// Work period is the total time minus break time, divided by
+			// the number of breaks + 1
+			var workPeriod = totalTimeStorage-(60*numBreaksStorage*breakLengthStorage);
+			workPeriod = workPeriod/(parseInt(numBreaksStorage)+1);
+			
+			// Iterate through total sequence of countdowns
+			for (let i = 0; i < (2*numBreaksStorage+1); i++)
+			{
+				// insert work period on even index
+				if (i % 2 == 0)
+				{
+					countdownList.push([workPeriod, true]);	// true is parsed later to read "Work"
+				}
+				
+				else if (i % 2 == 1)
+				{
+					countdownList.push([breakLengthStorage*60, false]); // false is parsed later to read "Break" 
+				}
+			}
+		}
+	}
+	
+	// Handle all presets
+	else if (isPomodoroStorage)
+	{
+		countdownList.push([(25*60), true]);
+		countdownList.push([(5*60), false]);
+	}
+	else if (isShortPeriodStorage)
+	{
+		countdownList.push([(3600*1), true]);
+		countdownList.push([(10*60), false]);
+	}
+	else
+	{
+		var longPeriodTime = (3*3600) + (30*60);
+		var workPeriod = longPeriodTime-(60*3*10);
+		workPeriod = workPeriod/(parseInt(3)+1);
+		countdownList.push([workPeriod, true]);
+		countdownList.push([10*60, false]);
+	}
+	
+	sessionHours.value = sessionHoursStorage;
+	sessionMins.value = sessionMinsStorage;
+	sessionSecs.value = sessionSecsStorage;
+	numBreaks = numBreaksStorage;
+	breakLength = breakLengthStorage;
+	isPomodoro = isPomodoroStorage;
+	isShortPeriod = isShortPeriodStorage;
+	isLongPeriod = isLongPeriodStorage;
 }
 
 var initialTime = countdownList[0][0];
@@ -86,6 +169,43 @@ let hours   = Math.floor(initialTime/ 3600);
 let minutes = Math.floor((initialTime - (hours * 3600)) / 60);
 let seconds = initialTime - (hours * 3600) - (minutes * 60);
 document.getElementById("timeText").innerHTML = hours + "H " + minutes + "M " + seconds + "S";
+
+// Store data in the local storage if navigating to another page
+document.getElementById('calendar').addEventListener('click', function()
+{
+	localStorage.setItem('sessionHours', sessionHours.value);
+	localStorage.setItem('sessionMins', sessionMins.value);
+	localStorage.setItem('sessionSecs', sessionSecs.value);
+	localStorage.setItem('numBreaks', numBreaks);
+	localStorage.setItem('breakLength', breakLength);
+	localStorage.setItem('isPomodoro', isPomodoro);
+	localStorage.setItem('isShortPeriod', isShortPeriod);
+	localStorage.setItem('isLongPeriod', isLongPeriod);
+});
+
+document.getElementById('countdown').addEventListener('click', function()
+{
+	localStorage.setItem('sessionHours', sessionHours.value);
+	localStorage.setItem('sessionMins', sessionMins.value);
+	localStorage.setItem('sessionSecs', sessionSecs.value);
+	localStorage.setItem('numBreaks', numBreaks);
+	localStorage.setItem('breakLength', breakLength);
+	localStorage.setItem('isPomodoro', isPomodoro);
+	localStorage.setItem('isShortPeriod', isShortPeriod);
+	localStorage.setItem('isLongPeriod', isLongPeriod);
+});
+
+document.getElementById('todo').addEventListener('click', function()
+{
+	localStorage.setItem('sessionHours', sessionHours.value);
+	localStorage.setItem('sessionMins', sessionMins.value);
+	localStorage.setItem('sessionSecs', sessionSecs.value);
+	localStorage.setItem('numBreaks', numBreaks);
+	localStorage.setItem('breakLength', breakLength);
+	localStorage.setItem('isPomodoro', isPomodoro);
+	localStorage.setItem('isShortPeriod', isShortPeriod);
+	localStorage.setItem('isLongPeriod', isLongPeriod);
+});
 
 // Handle start button click
 document.getElementById('start').addEventListener('click', function()

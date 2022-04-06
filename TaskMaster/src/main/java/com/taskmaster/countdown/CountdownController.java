@@ -27,7 +27,7 @@ public class CountdownController
 	
 	// Submits the CountdownDto data, transferring user from countdown page
 	// to config_countdown page
-	@PostMapping("/")
+	@PostMapping("/config_countdown")
 	public String coundownConfigSubmit(ModelMap model, CountdownDto countdownDto)
 	{
 		countdownDto.setState("Work");
@@ -47,7 +47,7 @@ public class CountdownController
 	
 	// Submits the CountdownDto data, transferring user from config_countdown page
 	// to countdown page
-	@PostMapping("/config_countdown")
+	@PostMapping("/")
 	public String configCountdownSubmit(ModelMap model, @ModelAttribute CountdownDto countdownDto)
 	{
 		countdownDto.setState("Work");
