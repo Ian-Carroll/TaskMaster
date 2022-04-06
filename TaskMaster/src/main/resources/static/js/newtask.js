@@ -1,10 +1,17 @@
-document.getElementById("Save").addEventListener("click", function () {
+/*document.getElementById("Save").addEventListener("click", function () {
 					let NewTaskName = document.getElementById('NewTaskName').value;
-					alert(NewTaskName)
-					document.getElementById("NewForm").submit()
+					if (NewTaskName != "")
+					{
+						task.name = NewTaskName;
+					}
+					else task.name = "Default Name";
+					
 					let NewTaskDetails = document.getElementById('NewTaskDetails').value;
-					alert(NewTaskDetails)
-					//sessionStorage.setItem("NewTaskName",NewTaskName)
-					//sessionStorage.setItem("NewTaskDetails",NewTaskDetails)
-				
+					
+					if (NewTaskDetails != "")
+					{
+						task.comment = NewTaskDetails;
+					}
+					else task.comment = "";
 					document.getElementById("NewForm").submit()})
+					*/
