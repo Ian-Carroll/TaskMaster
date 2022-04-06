@@ -7,7 +7,9 @@
 	<body> 
 		<h2 class="row justify-content-center"> Edit Tasks</h2>
 		<form action=" " th:action="@{/todo/newtask}" th:object="${todoDto}" method="post" id="NewForm" name="NewForm" style="margin: 5em 5em 0em 5em;">
-			<!-- Task 0 -->
+			
+			
+			<!-- Task 0  Input -->
 			<h3> Task 0 </h3>
 			
 			<div class="mb-3">
@@ -32,11 +34,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="Task0DueDate" class="form-label ">Task Due Date</label>
-				<input type="date" class="form-control" id="Task0DueDate" th:field="${todoDto.task0.due_date}" name="Task0DueDate">
+				<input type="date" class="form-control" id="Task0DueDate" th:field="${todoDto.task0.dueDate}" name="Task0DueDate">
 			</div>
 			
 			
-			<!-- Task 1 -->
+			<!-- Task 1 Input -->
 			<h3> Task 1 </h3>
 			
 			<div class="mb-3">
@@ -61,11 +63,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="Task1DueDate" class="form-label ">Task Due Date</label>
-				<input type="date" class="form-control" id="Task1DueDate" th:field="${todoDto.task1.due_date}" name="Task1DueDate">
+				<input type="date" class="form-control" id="Task1DueDate" th:field="${todoDto.task1.dueDate}" name="Task1DueDate">
 			</div>
 			
 			
-			<!-- Task 2 -->
+			<!-- Task 2 Input -->
 			<h3> Task 2 </h3>
 			
 			<div class="mb-3">
@@ -90,11 +92,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="Task2DueDate" class="form-label ">Task Due Date</label>
-				<input type="date" class="form-control" id="Task2DueDate" th:field="${todoDto.task2.due_date}" name="Task2DueDate">
+				<input type="date" class="form-control" id="Task2DueDate" th:field="${todoDto.task2.dueDate}" name="Task2DueDate">
 			</div>
 			
 			
-			<!-- Task 3 -->
+			<!-- Task 3 Input -->
 			<h3> Task 3 </h3>
 			
 			<div class="mb-3">
@@ -118,11 +120,11 @@
 			</div>
 			<div class="mb-3">
 				<label for="Task3DueDate" class="form-label ">Task Due Date</label>
-				<input type="date" class="form-control" id="Task3DueDate" th:field="${todoDto.task3.due_date}" name="Task3DueDate">
+				<input type="date" class="form-control" id="Task3DueDate" th:field="${todoDto.task3.dueDate}" name="Task3DueDate">
 			</div>
 			
 			
-			<!-- Task 4 -->
+			<!-- Task 4 Input -->
 			<h3> Task 4 </h3>
 			
 			<div class="mb-3">
@@ -147,9 +149,8 @@
 			</div>
 			<div class="mb-3">
 				<label for="Task4DueDate" class="form-label ">Task Due Date</label>
-				<input type="date" class="form-control" id="Task4DueDate" th:field="${todoDto.task4.due_date}" name="Task4DueDate">
+				<input type="date" class="form-control" id="Task4DueDate" th:field="${todoDto.task4.dueDate}" name="Task4DueDate">
 			</div>
-				
 		<button type="submit" class="btn btn-primary" id="Save" style="margin-top: 6em">Save</button>
 		</form>
 	<script  type="text/javascript" src="/js/newtask.js"></script>

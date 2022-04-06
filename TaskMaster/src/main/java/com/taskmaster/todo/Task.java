@@ -1,16 +1,13 @@
 package com.taskmaster.todo;
 
+// Task class is used to store the task specific Data (name, comment, priority, dueDate
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import org.springframework.web.client.RestTemplate;
 public class Task {
 	private String name;
-	//private ArrayList<String> comments;
 	private String comment;
 	private Priority priority;
-	private LocalDate due_date;
-	
+	private LocalDate dueDate;
 	
 	public String getComment() {
 		return comment;
@@ -28,14 +25,6 @@ public class Task {
 		this.name = name;
 	}
 
-	/*public ArrayList<String> getComments() {
-		return comments;
-	}
-
-	public void setComments(ArrayList<String> comments) {
-		this.comments = comments;
-	}
-	*/
 	public Priority getPriority() {
 		return priority;
 	}
@@ -44,12 +33,12 @@ public class Task {
 		this.priority = priority;
 	}
 
-	public LocalDate getDue_date() {
-		return due_date;
+	public LocalDate getDueDate() {
+		return dueDate;
 	}
 
-	public void setDue_date(LocalDate due_date) {
-		this.due_date = due_date;
+	public void setDueDate(LocalDate dueDate) {
+		this.dueDate = dueDate;
 	}
 
 }

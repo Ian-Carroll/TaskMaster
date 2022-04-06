@@ -1,4 +1,6 @@
 <html xmlns:th="http://thymeleaf.org">
+	
+	<!-- Navbar for todo page -->
 	<nav class="navbar navbar-light bg-light" style="margin: 1em" >
 		 <a class="navbar-brand" href="/" style="margin: auto">Home</a>
 		 <a class="navbar-brand" href="/" style="margin: auto">Countdown</a>
@@ -11,32 +13,36 @@
 		</title>
 	</head>
 	<body>
+	
+		<!-- todoDto data -->
 		<form action=" " th:action="@{/todo}" th:object="${todoDto}" method="post" id="ToDoForm">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task0Name" th:field="${todoDto.task0.name}">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task0Comment" th:field="${todoDto.task0.comment}">
 			<select style="display: none;"  class="form-control form control-lg" id="Task0Priority" th:field="${todoDto.task0.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task0DueDate" th:field="${todoDto.task0.due_date}">
+			<input style="display: none;" type="date" class="form-control form control-lg" id="Task0DueDate" th:field="${todoDto.task0.dueDate}">
 			
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Name" th:field="${todoDto.task1.name}">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Comment" th:field="${todoDto.task1.comment}">
 			<select style="display: none;"  class="form-control form control-lg" id="Task1Priority" th:field="${todoDto.task1.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task1DueDate" th:field="${todoDto.task1.due_date}">
+			<input style="display: none;" type="date" class="form-control form control-lg" id="Task1DueDate" th:field="${todoDto.task1.dueDate}">
 			
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Name" th:field="${todoDto.task2.name}">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Comment" th:field="${todoDto.task2.comment}">
 			<select style="display: none;"  class="form-control form control-lg" id="Task2Priority" th:field="${todoDto.task2.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task2DueDate" th:field="${todoDto.task2.due_date}">
+			<input style="display: none;" type="date" class="form-control form control-lg" id="Task2DueDate" th:field="${todoDto.task2.dueDate}">
 			
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Name" th:field="${todoDto.task3.name}">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Comment" th:field="${todoDto.task3.comment}">
 			<select style="display: none;"  class="form-control form control-lg" id="Task3Priority" th:field="${todoDto.task3.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task3DueDate" th:field="${todoDto.task3.due_date}">
+			<input style="display: none;" type="date" class="form-control form control-lg" id="Task3DueDate" th:field="${todoDto.task3.dueDate}">
 			
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Name" th:field="${todoDto.task4.name}">
 			<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Comment" th:field="${todoDto.task4.comment}">
 			<select style="display: none;"  class="form-control form control-lg" id="Task4Priority" th:field="${todoDto.task4.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task4DueDate" th:field="${todoDto.task4.due_date}">
+			<input style="display: none;" type="date" class="form-control form control-lg" id="Task4DueDate" th:field="${todoDto.task4.dueDate}">
 		
+		
+		<!-- Todo list code -->
 		<div   class="container">
 			<a href="/todo/newtask">
 				<button type="submit" class="btn btn-Primary" id ="New Task"style="margin-top: 0.5em;">Edit Tasks</button>
@@ -56,31 +62,31 @@
 						<th  scope="row" th:text="${todoDto.task0.name}"></th>
 						<td  th:text="${todoDto.task0.comment}"></td>
 						<td  th:text="${todoDto.task0.priority}"></td>
-						<td  th:text="${todoDto.task0.due_date}"></td>
+						<td  th:text="${todoDto.task0.dueDate}"></td>
 					</tr>
 					<tr> 
 						<th  scope="row" th:text="${todoDto.task1.name}"></th>
 						<td  th:text="${todoDto.task1.comment}"></td>
 						<td  th:text="${todoDto.task1.priority}"></td>
-						<td  th:text="${todoDto.task1.due_date}"></td>
+						<td  th:text="${todoDto.task1.dueDate}"></td>
 					</tr>
 					<tr> 
 						<th  scope="row" th:text="${todoDto.task2.name}"></th>
 						<td  th:text="${todoDto.task2.comment}"></td>
 						<td  th:text="${todoDto.task2.priority}"></td>
-						<td  th:text="${todoDto.task2.due_date}"></td>
+						<td  th:text="${todoDto.task2.dueDate}"></td>
 					</tr>
 					<tr> 
 						<th  scope="row" th:text="${todoDto.task3.name}"></th>
 						<td  th:text="${todoDto.task3.comment}"></td>
 						<td  th:text="${todoDto.task3.priority}"></td>
-						<td  th:text="${todoDto.task3.due_date}"></td>
+						<td  th:text="${todoDto.task3.dueDate}"></td>
 					</tr>
 					<tr> 
 						<th  scope="row" th:text="${todoDto.task4.name}"></th>
 						<td  th:text="${todoDto.task4.comment}"></td>
 						<td  th:text="${todoDto.task4.priority}"></td>
-						<td  th:text="${todoDto.task4.due_date}"></td>
+						<td  th:text="${todoDto.task4.dueDate}"></td>
 					</tr>
 				</tbody>
 			</table>
