@@ -1,0 +1,59 @@
+body {
+	display: flex;
+	margin-top: 0.25em;
+	justify-content: center;
+}
+
+#topBar {
+  	color: #3d71f9;
+  	font-size: 24px;
+  	display: flex;
+  	justify-content: space-between;
+}
+
+#calendarBlock {
+	width: 770px;
+}
+
+#weekdays {
+	width: 100%;
+  	display: flex;
+  	color: #3d71f9;
+}
+
+#weekdays div {
+	width: 110px;
+  	padding: 10px;
+  	display: flex;
+}
+
+#calendar {
+	width: 100%;
+ 	margin: auto;
+  	display: flex;
+  	flex-wrap: wrap;
+}
+
+.daySquare {
+	width: 100px;
+  	padding: 10px;
+  	height: 100px;
+  	cursor: pointer;
+  	margin: 5px;
+  	box-shadow: 0px 0px 1px black;
+}
+
+.daySquare:hover {
+	background-color: rgb(138, 194, 236);
+}
+
+.blankSquare {
+	background-color: #FFFFFF;
+	box-shadow: none;
+	cursor: default;
+}
+
+.blankSquare:hover {
+	background-color: #FFFFFF;
+	cursor: default;
+}
