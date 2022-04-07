@@ -22,23 +22,15 @@ public class TodoController {
 	
 	// Submits the todoDto data, transferring the user from todo
 	// page to newtask page.
-	@PostMapping("/todo")
+	@PostMapping("/todo/newtask")
 	public String TodoSubmit(ModelMap model, TodoDto todoDto)
 	{
 		return "newtask";
 	}
 	
-	// Returns the newtask.html template on get request.
-	@GetMapping("/todo/newtask")
-	public String getTodoNewtaskView(ModelMap model, TodoDto todoDto)
-	{
-		model.put("todoDto",todoDto);
-		return "newtask";
-	}	
-	
 	// Submits the todoDto data, transferring the user from newtask page
 	// to todo page.
-	@PostMapping("/todo/newtask")
+	@PostMapping("/todo")
 	public String NewTaskSubmit(ModelMap model, @ModelAttribute TodoDto todoDto) {
 		model.put("todoDto",todoDto);
 		return "todo";

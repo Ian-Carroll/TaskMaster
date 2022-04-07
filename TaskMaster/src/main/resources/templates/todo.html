@@ -2,9 +2,9 @@
 	
 	<!-- Navbar for todo page -->
 	<nav class="navbar navbar-light bg-light" style="margin: 1em" >
-		 <a class="navbar-brand" href="/calendar" style="margin: auto">Calendar</a>
-		 <a class="navbar-brand" href="/" style="margin: auto">Countdown</a>
-		 <a class="navbar-brand" href="/todo" style="margin: auto">To-Do List</a>
+		 <a id="calendar" class="navbar-brand" href="/calendar" style="margin: auto">Calendar</a>
+		 <a id="countdown" class="navbar-brand" href="/" style="margin: auto">Countdown</a>
+		 <a id="todo" class="navbar-brand" href="/todo" style="margin: auto">To-Do List</a>
 	</nav>
 	<head>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
@@ -15,34 +15,41 @@
 	<body>
 	
 		<!-- todoDto data -->
-		<form action=" " th:action="@{/todo}" th:object="${todoDto}" method="post" id="ToDoForm">
-			<div  id="task0data">
+		<form action=" " th:action="@{/todo/newtask}" th:object="${todoDto}" method="post" id="ToDoForm">
+			<div id="taskdata0">
 				<input style="display: none;" type="text" class="form-control form control-lg" id="Task0Name" th:field="${todoDto.task0.name}">
 				<input style="display: none;" type="text" class="form-control form control-lg" id="Task0Comment" th:field="${todoDto.task0.comment}">
-				<select style="display: none;"  class="form-control form control-lg" id="Task0Priority" th:field="${todoDto.task0.priority}">
+				<input style="display: none;"  class="form-control form control-lg" id="Task0Priority" th:field="${todoDto.task0.priority}">
 				<input style="display: none;" type="date" class="form-control form control-lg" id="Task0DueDate" th:field="${todoDto.task0.dueDate}">
 			</div>
 			
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Name" th:field="${todoDto.task1.name}">
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Comment" th:field="${todoDto.task1.comment}">
-			<select style="display: none;"  class="form-control form control-lg" id="Task1Priority" th:field="${todoDto.task1.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task1DueDate" th:field="${todoDto.task1.dueDate}">
+			<div id="taskdata1">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Name" th:field="${todoDto.task1.name}">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task1Comment" th:field="${todoDto.task1.comment}">
+				<input style="display: none;"  class="form-control form control-lg" id="Task1Priority" th:field="${todoDto.task1.priority}">
+				<input style="display: none;" type="date" class="form-control form control-lg" id="Task1DueDate" th:field="${todoDto.task1.dueDate}">
+			</div>
 			
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Name" th:field="${todoDto.task2.name}">
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Comment" th:field="${todoDto.task2.comment}">
-			<select style="display: none;"  class="form-control form control-lg" id="Task2Priority" th:field="${todoDto.task2.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task2DueDate" th:field="${todoDto.task2.dueDate}">
+			<div id="taskdata2">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Name" th:field="${todoDto.task2.name}">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task2Comment" th:field="${todoDto.task2.comment}">
+				<input style="display: none;"  class="form-control form control-lg" id="Task2Priority" th:field="${todoDto.task2.priority}">
+				<input style="display: none;" type="date" class="form-control form control-lg" id="Task2DueDate" th:field="${todoDto.task2.dueDate}">
+			</div>
 			
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Name" th:field="${todoDto.task3.name}">
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Comment" th:field="${todoDto.task3.comment}">
-			<select style="display: none;"  class="form-control form control-lg" id="Task3Priority" th:field="${todoDto.task3.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task3DueDate" th:field="${todoDto.task3.dueDate}">
+			<div id="taskdata3">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Name" th:field="${todoDto.task3.name}">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task3Comment" th:field="${todoDto.task3.comment}">
+				<input style="display: none;"  class="form-control form control-lg" id="Task3Priority" th:field="${todoDto.task3.priority}">
+				<input style="display: none;" type="date" class="form-control form control-lg" id="Task3DueDate" th:field="${todoDto.task3.dueDate}">
+			</div>
 			
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Name" th:field="${todoDto.task4.name}">
-			<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Comment" th:field="${todoDto.task4.comment}">
-			<select style="display: none;"  class="form-control form control-lg" id="Task4Priority" th:field="${todoDto.task4.priority}">
-			<input style="display: none;" type="date" class="form-control form control-lg" id="Task4DueDate" th:field="${todoDto.task4.dueDate}">
-		
+			<div id="taskdata4">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Name" th:field="${todoDto.task4.name}">
+				<input style="display: none;" type="text" class="form-control form control-lg" id="Task4Comment" th:field="${todoDto.task4.comment}">
+				<input style="display: none;"  class="form-control form control-lg" id="Task4Priority" th:field="${todoDto.task4.priority}">
+				<input style="display: none;" type="date" class="form-control form control-lg" id="Task4DueDate" th:field="${todoDto.task4.dueDate}">
+			</div>
 		
 		<!-- Todo list code -->
 		<div   class="container">
@@ -60,31 +67,31 @@
 					</tr>
 				</thead>
 				<tbody> 
-					<tr> 
+					<tr id="taskdisplay0">
 						<th  scope="row" th:text="${todoDto.task0.name}"></th>
 						<td  th:text="${todoDto.task0.comment}"></td>
 						<td  th:text="${todoDto.task0.priority}"></td>
 						<td  th:text="${todoDto.task0.dueDate}"></td>
 					</tr>
-					<tr> 
+					<tr id="taskdisplay1">
 						<th  scope="row" th:text="${todoDto.task1.name}"></th>
 						<td  th:text="${todoDto.task1.comment}"></td>
 						<td  th:text="${todoDto.task1.priority}"></td>
 						<td  th:text="${todoDto.task1.dueDate}"></td>
 					</tr>
-					<tr> 
+					<tr id="taskdisplay2"> 
 						<th  scope="row" th:text="${todoDto.task2.name}"></th>
 						<td  th:text="${todoDto.task2.comment}"></td>
 						<td  th:text="${todoDto.task2.priority}"></td>
 						<td  th:text="${todoDto.task2.dueDate}"></td>
 					</tr>
-					<tr> 
+					<tr id="taskdisplay3">
 						<th  scope="row" th:text="${todoDto.task3.name}"></th>
 						<td  th:text="${todoDto.task3.comment}"></td>
 						<td  th:text="${todoDto.task3.priority}"></td>
 						<td  th:text="${todoDto.task3.dueDate}"></td>
 					</tr>
-					<tr> 
+					<tr id="taskdisplay4">
 						<th  scope="row" th:text="${todoDto.task4.name}"></th>
 						<td  th:text="${todoDto.task4.comment}"></td>
 						<td  th:text="${todoDto.task4.priority}"></td>
