@@ -1,6 +1,35 @@
 // Global Page variables
 let monthShift = 0;
 let click = null;
+let eventArrayLength = localStorage.getItem('arrayLength') ? parseInt(localStorage.getItem('arrayLength')) : 0;
+
+var eventArray = [];
+if (eventArrayLength !== 0)
+{
+	for (let i = 0; i < eventArrayLength; i++)
+	{
+		const eventName = localStorage.getItem('taskdata'+i+'name').toString();
+		const eventDate = localStorage.getItem('taskdata'+i+'date').toString();
+		console.log("Event Name: "+eventName);
+		console.log("Event Date: "+eventDate);
+		eventArray.push([eventName, eventDate]);
+	}
+}
+
+let eventDateStrs = [];
+
+for (let i = 0; i < eventArrayLength; i++)
+{
+	eventDateStrs.push(eventArray[i][1]);
+}
+
+let eventNameStrs = []
+
+for (let i = 0; i < eventArrayLength; i++)
+{
+	eventNameStrs.push(eventArray[i][0]);
+}
+
 
 // Constants
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -61,12 +90,38 @@ function updateCalendar()
 	{
 		const daySquare = document.createElement('div');
 		daySquare.classList.add('daySquare');
+		const dayStr = `${year}-0${month+1}-0${i-numBlankSquares}`.toString();
 		
 		if (i > numBlankSquares)
 		{
 			daySquare.innerText = i - numBlankSquares;
 			
-			daySquare.addEventListener('click', () => console.log('click'));
+			let eventsOnDay = [];
+			for (let j = 0; j < eventArrayLength; j++)
+			{
+				const string1 = String(dayStr);
+				const string2 = String(eventDateStrs[j]);
+				console.log(string1 == string2);
+				console.log("String1: "+string1);
+				console.log("String2: "+string2);
+				
+				if (string1 == string2)
+				{
+					eventsOnDay.push(eventArray[j]);
+				}
+			}
+			
+			if (eventsOnDay.length != 0)
+			{
+				for (let k = 0; k < eventsOnDay.length; k++)
+				{
+					const eventDiv = document.createElement('div');
+		        	eventDiv.classList.add('event');
+		        	eventDiv.innerText = eventsOnDay[k][0];
+		        	daySquare.appendChild(eventDiv);
+				}
+			}
+			
 		}
 		
 		else
