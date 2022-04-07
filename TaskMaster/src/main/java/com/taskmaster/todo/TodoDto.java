@@ -2,6 +2,7 @@ package com.taskmaster.todo;
 
 // TodoDto handles the storage of data on the todo page. It contains multiple tasks.
 public class TodoDto {
+	
 	private Task task0 = new Task();
 	private Task task1 = new Task();
 	private Task task2 = new Task();
