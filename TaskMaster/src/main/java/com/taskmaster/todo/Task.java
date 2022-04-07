@@ -3,10 +3,14 @@ package com.taskmaster.todo;
 // Task class is used to store the task specific Data (name, comment, priority, dueDate
 import java.time.LocalDate;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 public class Task {
 	private String name;
 	private String comment;
 	private Priority priority;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate dueDate;
 	
 	public String getComment() {
