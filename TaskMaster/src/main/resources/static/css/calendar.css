@@ -41,6 +41,17 @@ body {
   	cursor: pointer;
   	margin: 5px;
   	box-shadow: 0px 0px 1px black;
+  	overflow: auto;
+}
+
+.event {
+  	font-size: 10px;
+  	padding: 1px;
+  	background-color: #3d71f9;
+  	color: white;
+  	border-radius: 5px;
+  	max-height: 50px;
+	margin: 2px;
 }
 
 .daySquare:hover {
