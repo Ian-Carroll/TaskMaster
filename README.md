@@ -1,5 +1,5 @@
 # TaskMaster
-The TaskMaster Web Application is designed to boost the productivity and efficiency of students/workers alike, allowing the user to create specific work intervals and create a to-do list to manage tasks which transfers over to a calendar. The web application can be found here: https://taskmaster-application.herokuapp.com/
+The TaskMaster Web Application is designed to boost the productivity and efficiency of students/workers alike, allowing the user to create specific work intervals and create a to-do list to manage tasks which transfers over to a calendar. **The web application used to be found here:** https://taskmaster-application.herokuapp.com/; **however, it is no longer hosted.**
 
 The following is an overview of the front-end of the TaskMaster Web Application.
 
